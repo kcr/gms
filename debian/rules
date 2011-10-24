@@ -2,6 +2,7 @@
 
 DEB_AUTO_UPDATE_AUTOCONF = 2.50
 DEB_AUTO_UPDATE_ACLOCAL = 1.9
+DEB_AUTO_UPDATE_LIBTOOL = pre
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/autotools.mk
 
@@ -9,11 +10,13 @@ DEB_DH_INSTALL_SOURCEDIR = $(DEB_DESTDIR)
 DEB_FIXPERMS_EXCLUDE += \
 	var/cache/libgms/messages
 
-debian/stamp-autotools-files: aclocal.m4 install-sh missing
+debian/stamp-autotools-files: aclocal.m4 install-sh missing config.guess config.sub
 aclocal.m4:
-	touch $@
+	aclocal-1.9
 install-sh missing:
 	-automake-1.9 --foreign --add-missing
+config.guess config.sub:
+	cp /usr/share/misc/$@ $@
 
 
 common-install-indep::
@@ -22,4 +25,5 @@ common-install-indep::
 	chmod a=rw $(DEB_DESTDIR)/var/cache/libgms/messages
 
 clean::
-	rm -f configure aclocal.m4 install-sh missing
+	rm -f configure aclocal.m4 install-sh missing config.guess config.sub ltmain.sh libtool
+	rm -f config.log

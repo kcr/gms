@@ -13,13 +13,23 @@ Description: A library used by the global Athena message service
  .
  This package contains runtime files.
 
+Package: debathena-libgms0
+Section: debathena/libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Development files for the global Athena message service library
+ The gms library defines error codes and constants used by get_message 
+ and messaged, the components of the global Athena message service.
+ .
+ This package contains a shared library.
+
 Package: debathena-libgms-dev
 Section: debathena/libdevel
 Architecture: any
 Provides: libgms-dev
 Conflicts: debathena-libgms (<< 9.4)
 Replaces: debathena-libgms (<< 9.4)
-Depends: ${shlibs:Depends}, ${misc:Depends}, comerr-dev
+Depends: debthana-libgms0 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}, comerr-dev
 Description: Development files for the global Athena message service library
  The gms library defines error codes and constants used by get_message 
  and messaged, the components of the global Athena message service.

@@ -1,2 +1,4 @@
-usr/lib/*
+usr/lib/libgms.so
+usr/lib/libgms.la
+usr/lib/libgms.a
 usr/include/*
