@@ -1,3 +1,10 @@
+debathena-libgms (10.0.0-0debathena5) unstable; urgency=low
+
+  * Generate aclocal.m4 ourselves instead of copying in the standard
+        Athena aclocal.m4. (Trac: #334)
+
+ -- Karl Ramm <kcr@mit.edu>  Sun, 23 Oct 2011 20:15:18 -0400
+
 debathena-libgms (10.0.0-0debathena4) unstable; urgency=low
 
   * Correct temporary cache directory.
